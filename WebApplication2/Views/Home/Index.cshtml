@@ -1,0 +1,157 @@
+﻿@{
+    ViewBag.Title = "Dashboard";
+}
+
+<!-- Page Header -->
+<div class="text-center my-4">
+    <h2 class="display-4 font-weight-bold">Dashboard</h2>
+    <p class="lead text-muted">Manage Students, Sections, Courses, Teachers, and Rooms</p>
+</div>
+
+<!-- Table Container with Styling -->
+<div class="container-fluid">
+    <!-- Combined Table -->
+    <div class="card shadow-lg">
+        <div class="card-header bg-primary text-white">
+            <h4 class="card-title mb-0">Entities Overview</h4>
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Student</th>
+                        <th>Section</th>
+                        <th>Course</th>
+                        <th>Teacher</th>
+                        <th>Room</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Example Row: Student -->
+                    <tr>
+                        <td>1</td>
+                        <td>John Doe</td> <!-- Student Name -->
+                        <td></td> <!-- No section for student -->
+                        <td></td> <!-- No course for student -->
+                        <td></td> <!-- No teacher for student -->
+                        <td></td> <!-- No room for student -->
+                        <td>
+                            <form method="post" action="/Dashboard/DeleteStudent" style="display:inline;">
+                                <input type="hidden" name="id" value="1" />
+                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                            </form>
+                            <a href="/Dashboard/EditStudent/1" class="btn btn-warning btn-sm ml-2">Edit</a> <!-- Edit Button -->
+                        </td>
+                    </tr>
+
+                    <!-- Example Row: Section -->
+                    <tr>
+                        <td>2</td>
+                        <td></td> <!-- No student for section -->
+                        <td>Section A</td> <!-- Section Name -->
+                        <td></td> <!-- No course for section -->
+                        <td></td> <!-- No teacher for section -->
+                        <td></td> <!-- No room for section -->
+                        <td>
+                            <form method="post" action="/Dashboard/DeleteSection" style="display:inline;">
+                                <input type="hidden" name="id" value="2" />
+                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                            </form>
+                            <a href="/Dashboard/EditSection/2" class="btn btn-warning btn-sm ml-2">Edit</a> <!-- Edit Button -->
+                        </td>
+                    </tr>
+
+                    <!-- Example Row: Course -->
+                    <tr>
+                        <td>3</td>
+                        <td></td> <!-- No student for course -->
+                        <td></td> <!-- No section for course -->
+                        <td>Math 101</td> <!-- Course Title -->
+                        <td></td> <!-- No teacher for course -->
+                        <td></td> <!-- No room for course -->
+                        <td>
+                            <form method="post" action="/Dashboard/DeleteCourse" style="display:inline;">
+                                <input type="hidden" name="id" value="3" />
+                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                            </form>
+                            <a href="/Dashboard/EditCourse/3" class="btn btn-warning btn-sm ml-2">Edit</a> <!-- Edit Button -->
+                        </td>
+                    </tr>
+
+                    <!-- Example Row: Teacher -->
+                    <tr>
+                        <td>4</td>
+                        <td></td> <!-- No student for teacher -->
+                        <td></td> <!-- No section for teacher -->
+                        <td></td> <!-- No course for teacher -->
+                        <td>Jane Smith</td> <!-- Teacher Name -->
+                        <td></td> <!-- No room for teacher -->
+                        <td>
+                            <form method="post" action="/Dashboard/DeleteTeacher" style="display:inline;">
+                                <input type="hidden" name="id" value="4" />
+                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                            </form>
+                            <a href="/Dashboard/EditTeacher/4" class="btn btn-warning btn-sm ml-2">Edit</a> <!-- Edit Button -->
+                        </td>
+                    </tr>
+
+                    <!-- Example Row: Room -->
+                    <tr>
+                        <td>5</td>
+                        <td></td> <!-- No student for room -->
+                        <td></td> <!-- No section for room -->
+                        <td></td> <!-- No course for room -->
+                        <td></td> <!-- No teacher for room -->
+                        <td>Room 101</td> <!-- Room Name -->
+                        <td>
+                            <form method="post" action="/Dashboard/DeleteRoom" style="display:inline;">
+                                <input type="hidden" name="id" value="5" />
+                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                            </form>
+                            <a href="/Dashboard/EditRoom/5" class="btn btn-warning btn-sm ml-2">Edit</a> <!-- Edit Button -->
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Optional Custom Styling for Cards -->
+<style>
+    .card {
+        margin-top: 30px;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-header {
+        background-color: #007bff;
+        color: white;
+        font-weight: bold;
+        text-align: center;
+        font-size: 1.2rem;
+        border-radius: 10px 10px 0 0;
+    }
+
+    .table thead th {
+        background-color: #343a40;
+        color: white;
+        font-size: 1rem;
+    }
+
+    .table-hover tbody tr:hover {
+        background-color: #f1f1f1;
+    }
+
+    .btn-sm {
+        font-size: 0.875rem;
+        padding: 0.375rem 0.75rem;
+    }
+
+    .ml-2 {
+        margin-left: 0.5rem;
+    }
+</style>
