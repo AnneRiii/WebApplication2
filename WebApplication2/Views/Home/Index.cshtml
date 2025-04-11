@@ -1,123 +1,31 @@
-﻿@{
-    ViewBag.Title = "Dashboard";
-}
+﻿
+@model StudentPageViewModel
 
-<!-- Page Header -->
-<div class="text-center my-4">
-    <h2 class="display-4 font-weight-bold">Dashboard</h2>
-    <p class="lead text-muted">Manage Students, Sections, Courses, Teachers, and Rooms</p>
-</div>
-
-<!-- Table Container with Styling -->
-<div class="container-fluid">
-    <!-- Combined Table -->
-    <div class="card shadow-lg">
-        <div class="card-header bg-primary text-white">
-            <h4 class="card-title mb-0">Entities Overview</h4>
-        </div>
-        <div class="card-body">
             <table class="table table-bordered table-hover">
                 <thead class="thead-dark">
                     <tr>
-                        <th>ID</th>
-                        <th>Student</th>
-                        <th>Section</th>
-                        <th>Course</th>
-                        <th>Teacher</th>
-                        <th>Room</th>
-                        <th>Actions</th>
+                        <th>Student ID</th>
+                        <th>First Name</th>
+                        <th>Middle Initial</th>
+                        <th>Last Name</th>
+                        <th>Age</th>
+               
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- Example Row: Student -->
-                    <tr>
-                        <td>1</td>
-                        <td>John Doe</td> <!-- Student Name -->
-                        <td></td> <!-- No section for student -->
-                        <td></td> <!-- No course for student -->
-                        <td></td> <!-- No teacher for student -->
-                        <td></td> <!-- No room for student -->
-                        <td>
-                            <form method="post" action="/Dashboard/DeleteStudent" style="display:inline;">
-                                <input type="hidden" name="id" value="1" />
-                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                            </form>
-                            <a href="/Dashboard/EditStudent/1" class="btn btn-warning btn-sm ml-2">Edit</a> <!-- Edit Button -->
-                        </td>
-                    </tr>
+                    @foreach(var row in Model.Students){
+                        <tr>
+                            <td>@row.StudentID</td>
+                            <td>@row.FirstName</td>
+                            <td>@row.MiddleInitial</td>
+                            <td>@row.LastName</td>
+                            <td>@row.Age</td>
+                        </tr>
 
-                    <!-- Example Row: Section -->
-                    <tr>
-                        <td>2</td>
-                        <td></td> <!-- No student for section -->
-                        <td>Section A</td> <!-- Section Name -->
-                        <td></td> <!-- No course for section -->
-                        <td></td> <!-- No teacher for section -->
-                        <td></td> <!-- No room for section -->
-                        <td>
-                            <form method="post" action="/Dashboard/DeleteSection" style="display:inline;">
-                                <input type="hidden" name="id" value="2" />
-                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                            </form>
-                            <a href="/Dashboard/EditSection/2" class="btn btn-warning btn-sm ml-2">Edit</a> <!-- Edit Button -->
-                        </td>
-                    </tr>
-
-                    <!-- Example Row: Course -->
-                    <tr>
-                        <td>3</td>
-                        <td></td> <!-- No student for course -->
-                        <td></td> <!-- No section for course -->
-                        <td>Math 101</td> <!-- Course Title -->
-                        <td></td> <!-- No teacher for course -->
-                        <td></td> <!-- No room for course -->
-                        <td>
-                            <form method="post" action="/Dashboard/DeleteCourse" style="display:inline;">
-                                <input type="hidden" name="id" value="3" />
-                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                            </form>
-                            <a href="/Dashboard/EditCourse/3" class="btn btn-warning btn-sm ml-2">Edit</a> <!-- Edit Button -->
-                        </td>
-                    </tr>
-
-                    <!-- Example Row: Teacher -->
-                    <tr>
-                        <td>4</td>
-                        <td></td> <!-- No student for teacher -->
-                        <td></td> <!-- No section for teacher -->
-                        <td></td> <!-- No course for teacher -->
-                        <td>Jane Smith</td> <!-- Teacher Name -->
-                        <td></td> <!-- No room for teacher -->
-                        <td>
-                            <form method="post" action="/Dashboard/DeleteTeacher" style="display:inline;">
-                                <input type="hidden" name="id" value="4" />
-                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                            </form>
-                            <a href="/Dashboard/EditTeacher/4" class="btn btn-warning btn-sm ml-2">Edit</a> <!-- Edit Button -->
-                        </td>
-                    </tr>
-
-                    <!-- Example Row: Room -->
-                    <tr>
-                        <td>5</td>
-                        <td></td> <!-- No student for room -->
-                        <td></td> <!-- No section for room -->
-                        <td></td> <!-- No course for room -->
-                        <td></td> <!-- No teacher for room -->
-                        <td>Room 101</td> <!-- Room Name -->
-                        <td>
-                            <form method="post" action="/Dashboard/DeleteRoom" style="display:inline;">
-                                <input type="hidden" name="id" value="5" />
-                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                            </form>
-                            <a href="/Dashboard/EditRoom/5" class="btn btn-warning btn-sm ml-2">Edit</a> <!-- Edit Button -->
-                        </td>
-                    </tr>
+                    }
                 </tbody>
             </table>
-        </div>
-    </div>
-</div>
+        
 
 <!-- Optional Custom Styling for Cards -->
 <style>

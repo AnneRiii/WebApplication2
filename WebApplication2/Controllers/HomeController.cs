@@ -15,8 +15,14 @@ namespace WebApplication2.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            StudentPageViewModel resp = new StudentPageViewModel();
+            using (var db = new StudInfoSysContext())
+            {
+                resp.Students = db.Students.ToList();
+            }
+            return View(resp);
         }
+    
 
         public IActionResult Privacy()
         {

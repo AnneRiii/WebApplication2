@@ -13,20 +13,22 @@ public partial class StudInfoSysContext : DbContext
     {
     }
 
-    public virtual DbSet<Course> Course { get; set; }
+    public virtual DbSet<Course> Courses { get; set; }
 
-    public virtual DbSet<Room> Room { get; set; }
+    public virtual DbSet<Room> Rooms { get; set; }
 
-    public virtual DbSet<Section> Section { get; set; }
+    public virtual DbSet<Section> Sections { get; set; }
 
-    public virtual DbSet<Student> Student { get; set; }
+    public virtual DbSet<Student> Students { get; set; }
 
-    public virtual DbSet<Teacher> Teacher { get; set; }
+    public virtual DbSet<Teacher> Teachers { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Course>(entity =>
         {
+            entity.ToTable("Course");
+
             entity.Property(e => e.CourseID).ValueGeneratedNever();
             entity.Property(e => e.CourseCode)
                 .IsRequired()
@@ -41,6 +43,8 @@ public partial class StudInfoSysContext : DbContext
 
         modelBuilder.Entity<Room>(entity =>
         {
+            entity.ToTable("Room");
+
             entity.Property(e => e.RoomID).ValueGeneratedNever();
             entity.Property(e => e.Building)
                 .IsRequired()
@@ -52,6 +56,8 @@ public partial class StudInfoSysContext : DbContext
 
         modelBuilder.Entity<Section>(entity =>
         {
+            entity.ToTable("Section");
+
             entity.Property(e => e.SectionID)
                 .HasMaxLength(50)
                 .IsUnicode(false);
@@ -67,6 +73,8 @@ public partial class StudInfoSysContext : DbContext
 
         modelBuilder.Entity<Student>(entity =>
         {
+            entity.ToTable("Student");
+
             entity.Property(e => e.StudentID).ValueGeneratedNever();
             entity.Property(e => e.Address)
                 .IsRequired()
@@ -84,6 +92,8 @@ public partial class StudInfoSysContext : DbContext
 
         modelBuilder.Entity<Teacher>(entity =>
         {
+            entity.ToTable("Teacher");
+
             entity.Property(e => e.TeacherID).ValueGeneratedNever();
             entity.Property(e => e.ContactNo)
                 .IsRequired()
